@@ -109,15 +109,15 @@ variable "DEBIAN_RELEASE" {
 }
 
 variable "JAVA11_VERSION" {
-  default = "11.0.21_9"
+  default = "11.0.22_7"
 }
 
 variable "JAVA17_VERSION" {
-  default = "17.0.9_9"
+  default = "17.0.10_7"
 }
 
 variable "JAVA21_VERSION" {
-  default = "21.0.1_12"
+  default = "21.0.2_13"
 }
 
 variable "JAVA21_PREVIEW_VERSION" {

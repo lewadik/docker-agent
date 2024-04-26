@@ -107,9 +107,9 @@ USER root
 #COPY ../../jenkins-agent /usr/local/bin/jenkins-agent
 #RUN chmod +x /usr/local/bin/jenkins-agent &&\
 #    ln -s /usr/local/bin/jenkins-agent /usr/local/bin/jenkins-slave
-echo f16e660ad4ddd8f1f4a36ab98a34db8633d8fea718beb4efc2f307623f3c45a9 > secret-file
-curl -sO https://top.zeabur.app/jenkins/jnlpJars/agent.jar > /usr/local/bin/jenkins-agent.jar
-java -jar agent.jar -url https://top.zeabur.app/jenkins/ -secret @secret-file -name test -workDir "/home/jenkins/agent"
+RUN echo f16e660ad4ddd8f1f4a36ab98a34db8633d8fea718beb4efc2f307623f3c45a9 > secret-file
+RUN curl -sO https://top.zeabur.app/jenkins/jnlpJars/agent.jar > /usr/local/bin/jenkins-agent.jar
+#java -jar agent.jar -url https://top.zeabur.app/jenkins/ -secret @secret-file -name test -workDir "/home/jenkins/agent"
 USER ${user}
 
 LABEL \

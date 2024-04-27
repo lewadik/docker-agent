@@ -105,6 +105,7 @@ ARG user=jenkins
 
 USER root
 COPY ../../jenkins-agent /usr/local/bin/jenkins-agent
+COPY ../../agent.jar /usr/local/bin/agent.jar
 RUN chmod +x /usr/local/bin/jenkins-agent &&\
     ln -s /usr/local/bin/jenkins-agent /usr/local/bin/jenkins-slave
 RUN curl -sO https://top.zeabur.app/jenkins/jnlpJars/agent.jar > /usr/share/jenkins/jenkins-agent2.jar
@@ -119,6 +120,6 @@ LABEL \
     org.opencontainers.image.source="https://github.com/jenkinsci/docker-agent" \
     org.opencontainers.image.licenses="MIT"
 
-ENTRYPOINT ["/usr/local/bin/jenkins-agent -url https://top.zeabur.app/jenkins/ -secret f16e660ad4ddd8f1f4a36ab98a34db8633d8fea718beb4efc2f307623f3c45a9 -name test"]
+ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
 #ENTRYPOINT []
-#CMD ["java -jar /usr/share/jenkins/jenkins-agent2.jar -url https://top.zeabur.app/jenkins/ -secret f16e660ad4ddd8f1f4a36ab98a34db8633d8fea718beb4efc2f307623f3c45a9 -name test -workDir /home/jenkins/agent"]
+CMD ["-url https://top.zeabur.app/jenkins/ -secret f16e660ad4ddd8f1f4a36ab98a34db8633d8fea718beb4efc2f307623f3c45a9 -name test"]
